@@ -28,7 +28,7 @@
 
   // Scroll reveal
   var revealTargets = document.querySelectorAll(
-    ".card, .step, .stat, .about__media, .about__text, .gallery__item, .section__head"
+    ".card, .step, .stat, .about__media, .about__text, .gallery__item, .section__head, .testimonial, .faq__item"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
