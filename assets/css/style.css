@@ -121,12 +121,15 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 70
 /* ---------- Service cards ---------- */
 .card {
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 2rem 1.7rem; transition: .25s ease; position: relative; overflow: hidden;
+  transition: .25s ease; position: relative; overflow: hidden; display: flex; flex-direction: column;
 }
-.card::before { content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 0; background: var(--gold); transition: width .3s; }
+.card::before { content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 0; background: var(--gold); transition: width .3s; z-index: 2; }
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
 .card:hover::before { width: 100%; }
-.card__icon { width: 60px; height: 60px; display: grid; place-items: center; font-size: 1.7rem; background: var(--bg-alt); border-radius: 12px; margin-bottom: 1.1rem; }
+.card__media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink-2); }
+.card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+.card:hover .card__media img { transform: scale(1.06); }
+.card__body { padding: 1.5rem 1.6rem 1.9rem; }
 .card h3 { font-size: 1.35rem; margin-bottom: .5rem; }
 .card p { color: var(--grey); font-size: .98rem; }
 
