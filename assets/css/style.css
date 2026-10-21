@@ -42,7 +42,10 @@ a { color: inherit; text-decoration: none; }
 
 .container { width: min(100% - 40px, var(--container)); margin-inline: auto; }
 
-h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 700; letter-spacing: .3px; }
+h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 800; letter-spacing: .2px; }
+
+/* Inline line icons */
+.ic { width: 1.05em; height: 1.05em; flex: none; display: inline-block; vertical-align: -.15em; }
 
 .accent { color: var(--gold); }
 .hide-sm { display: inline; }
@@ -69,7 +72,8 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 70
 .topbar__inner { display: flex; justify-content: space-between; align-items: center; min-height: 40px; gap: 1rem; flex-wrap: wrap; }
 .topbar__contacts { display: flex; gap: 1.3rem; flex-wrap: wrap; }
 .topbar a:hover { color: var(--gold); }
-.topbar .ico { margin-right: .25rem; }
+.topbar__contacts a { display: inline-flex; align-items: center; gap: .4rem; }
+.topbar__contacts .ic { color: var(--gold); width: 15px; height: 15px; }
 .topbar__meta { color: var(--grey-light); }
 
 /* ---------- Header ---------- */
@@ -217,7 +221,8 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 70
 .contact__lead { color: var(--grey); margin-bottom: 1.8rem; }
 .contact__list { list-style: none; display: grid; gap: 1.3rem; margin-bottom: 1.8rem; }
 .contact__list li { display: flex; gap: 1rem; align-items: flex-start; }
-.contact__ico { width: 46px; height: 46px; flex: none; display: grid; place-items: center; background: var(--bg-alt); border-radius: 10px; font-size: 1.2rem; }
+.contact__ico { width: 46px; height: 46px; flex: none; display: grid; place-items: center; background: var(--bg-alt); border-radius: 10px; color: var(--gold-dark); }
+.contact__ico .ic { width: 22px; height: 22px; }
 .contact__list a:hover { color: var(--gold-dark); }
 
 .contact__form { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.2rem; box-shadow: var(--shadow); }
@@ -240,6 +245,8 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 70
 .footer__col p { font-size: .92rem; margin-top: 1rem; color: #a6a6a6; }
 .footer__col h4 { color: #fff; font-family: var(--ff-head); font-size: 1.1rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
 .footer__col ul { list-style: none; display: grid; gap: .55rem; font-size: .92rem; }
+.footer__contact li { display: flex; align-items: flex-start; gap: .6rem; }
+.footer__contact .ic { color: var(--gold); width: 17px; height: 17px; margin-top: 3px; }
 .footer__col a:hover { color: var(--gold); }
 .footer__bar { border-top: 1px solid #333; padding: 1.2rem 0; font-size: .85rem; }
 .footer__bar-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
