@@ -26,7 +26,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+html { scroll-behavior: smooth; scroll-padding-top: 104px; }
 
 body {
   font-family: var(--ff-body);
@@ -77,10 +77,10 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 70
   position: sticky; top: 0; z-index: 50; background: var(--white);
   border-bottom: 1px solid var(--line); box-shadow: 0 2px 12px rgba(0,0,0,.05);
 }
-.header__inner { display: flex; align-items: center; justify-content: space-between; min-height: 86px; gap: 1rem; }
+.header__inner { display: flex; align-items: center; justify-content: space-between; min-height: 96px; gap: 1rem; }
 .brand { display: flex; align-items: center; }
-.logo-img { height: 70px; width: auto; display: block; border-radius: 6px; }
-.logo-img--footer { height: 96px; }
+.logo-img { height: 64px; width: auto; display: block; background: #130c0c; padding: 10px; border-radius: 8px; box-sizing: content-box; }
+.logo-img--footer { height: 104px; }
 
 .nav { display: flex; align-items: center; gap: 1.6rem; }
 .nav > a { font-family: var(--ff-head); font-weight: 600; font-size: 1rem; letter-spacing: .5px; text-transform: uppercase; color: var(--ink); position: relative; padding: .3rem 0; }
@@ -94,15 +94,15 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 70
 /* ---------- Hero ---------- */
 .hero { position: relative; color: var(--white); overflow: hidden; }
 .hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transform: scale(1.05); }
-.hero__overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(20,20,20,.92) 0%, rgba(20,20,20,.78) 45%, rgba(20,20,20,.45) 100%); }
-.hero__content { position: relative; padding: 6rem 20px 5rem; max-width: 760px; }
+.hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,18,18,.74) 0%, rgba(18,18,18,.68) 45%, rgba(18,18,18,.84) 100%); }
+.hero__content { position: relative; padding: 6rem 20px 5rem; max-width: 840px; margin-inline: auto; text-align: center; }
 .hero__eyebrow { font-family: var(--ff-head); text-transform: uppercase; letter-spacing: 3px; color: var(--gold); font-weight: 600; margin-bottom: 1rem; font-size: .95rem; }
 .hero__title { font-size: clamp(2.3rem, 5.5vw, 4rem); margin-bottom: 1.4rem; }
-.hero__lead { font-size: 1.15rem; color: #e4e4e4; max-width: 620px; margin-bottom: 2rem; }
-.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+.hero__lead { font-size: 1.15rem; color: #e4e4e4; max-width: 640px; margin: 0 auto 2rem; }
+.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.2rem; }
 .hero__actions .btn--ghost { color: var(--white); border-color: rgba(255,255,255,.6); }
 .hero__actions .btn--ghost:hover { background: var(--white); color: var(--ink); }
-.hero__badges { list-style: none; display: flex; gap: 1.6rem; flex-wrap: wrap; font-size: .95rem; color: #d7d7d7; }
+.hero__badges { list-style: none; display: flex; gap: 1.6rem; flex-wrap: wrap; justify-content: center; font-size: .95rem; color: #d7d7d7; }
 .hero__badges li { font-weight: 500; }
 
 /* ---------- Sections ---------- */
@@ -265,10 +265,10 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 70
   .hide-sm { display: none !important; }
   .nav-toggle { display: flex; }
   .nav {
-    position: fixed; inset: 86px 0 auto 0; background: var(--white);
+    position: fixed; inset: 96px 0 auto 0; background: var(--white);
     flex-direction: column; align-items: stretch; gap: 0; padding: 1rem 20px 1.5rem;
     border-bottom: 1px solid var(--line); box-shadow: var(--shadow);
-    transform: translateY(-120%); transition: transform .3s ease; max-height: calc(100vh - 86px); overflow-y: auto;
+    transform: translateY(-120%); transition: transform .3s ease; max-height: calc(100vh - 96px); overflow-y: auto;
   }
   .nav.is-open { transform: translateY(0); }
   .nav > a { padding: .9rem 0; border-bottom: 1px solid var(--line); }
