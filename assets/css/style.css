@@ -83,8 +83,8 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 80
 }
 .header__inner { display: flex; align-items: center; justify-content: space-between; min-height: 96px; gap: 1rem; }
 .brand { display: flex; align-items: center; }
-.logo-img { height: 64px; width: auto; display: block; background: #130c0c; padding: 10px; border-radius: 8px; box-sizing: content-box; }
-.logo-img--footer { height: 104px; }
+.logo-img { height: 48px; width: auto; display: block; background: #130c0c; padding: 10px 14px; border-radius: 8px; box-sizing: content-box; }
+.logo-img--footer { height: auto; width: 100%; max-width: 280px; box-sizing: border-box; }
 
 .nav { display: flex; align-items: center; gap: 1.6rem; }
 .nav > a { font-family: var(--ff-head); font-weight: 600; font-size: 1rem; letter-spacing: .5px; text-transform: uppercase; color: var(--ink); position: relative; padding: .3rem 0; }
@@ -140,7 +140,7 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 80
 /* ---------- Stats ---------- */
 .stats { background: var(--ink); color: var(--white); padding: 3rem 0; }
 .stats__grid { gap: 1rem; }
-.stat { text-align: center; padding: .5rem; }
+.stat { text-align: center; padding: .5rem; min-width: 0; }
 .stat__num { font-family: var(--ff-head); font-size: clamp(2.3rem, 5vw, 3.2rem); font-weight: 700; color: var(--gold); line-height: 1; }
 .stat__plus { font-family: var(--ff-head); font-size: 1.8rem; color: var(--gold); font-weight: 700; }
 .stat p { margin-top: .4rem; color: #cfcfcf; font-size: .95rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -292,6 +292,10 @@ h1, h2, h3, h4 { font-family: var(--ff-head); line-height: 1.12; font-weight: 80
 
 @media (max-width: 520px) {
   body { font-size: 16px; }
+  .logo-img { height: 36px; padding: 8px 10px; }
+  .logo-img--footer { height: auto; max-width: 240px; }
+  .stats__grid { gap: 1.2rem; }
+  .stat p { font-size: .8rem; letter-spacing: .3px; hyphens: auto; overflow-wrap: anywhere; }
   .grid--3 { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .gallery__item--wide { grid-column: span 2; }
