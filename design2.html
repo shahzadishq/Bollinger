@@ -243,10 +243,10 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .band .cta{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* funnel */
-.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
-.sign{position:sticky;top:110px;background:var(--ink);color:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:stretch}
+.sign{position:relative;display:flex;flex-direction:column;background:var(--ink);color:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
 .sign .stripe{height:16px;background:repeating-linear-gradient(-45deg,var(--gold) 0 16px,var(--ink) 16px 32px)}
-.sign .in{padding:1.4rem 1.5rem 1.6rem}
+.sign .in{padding:1.4rem 1.5rem 1.6rem;flex:1;display:flex;flex-direction:column}
 .sign h3{font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .sign dl{margin:0;display:grid;gap:.1rem}
 .sign dt{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#9a9a94;margin-top:.8rem}
@@ -254,8 +254,8 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .sign dd.set{color:#fff;animation:pop .6s var(--ease)}
 @keyframes pop{0%{background:rgba(253,179,1,.5);transform:translateX(-6px)}100%{background:transparent;transform:none}}
 .sign .tel{font-size:.95rem;color:#cfcfc9}
-.sign-pic{margin:1.4rem 0 0;border-radius:calc(var(--r) - 4px);overflow:hidden;aspect-ratio:4/5}
-.sign-pic img{width:100%;height:100%;object-fit:cover;display:block}
+.sign-pic{margin:1.4rem 0 0;border-radius:calc(var(--r) - 4px);overflow:hidden;flex:1 1 auto;min-height:260px;position:relative}
+.sign-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .sign .tel>a{color:#fff;font-weight:700;text-decoration:none;display:block;font-size:1.25rem}
 .sign .tel>a:hover{color:var(--gold)}
 .sign ul.ct{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.5rem;font-size:.95rem;color:#cfcfc9}
@@ -351,7 +351,7 @@ footer .cl a{font-weight:600}
   .hero-media{max-width:480px;aspect-ratio:4/4.4}
   .cards{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:repeat(2,1fr)}
   .stats .wrap{grid-template-columns:repeat(3,1fr)}
-  .sign{position:static}
+  .sign{position:static}.sign-pic{flex:none;aspect-ratio:4/3;min-height:0}
   footer .wrap{grid-template-columns:1fr 1fr}.fab{display:block}
 }
 @media (max-width:620px){
@@ -385,7 +385,7 @@ footer .cl a{font-weight:600}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#top" aria-label="Abbruch Böllinger – zur Startseite"><img class="logo" src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-600.webp" alt="Abbruch Böllinger" width="600" height="354" /></a>
+    <a href="#top" aria-label="Abbruch Böllinger – zur Startseite"><img class="logo" src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-header.webp" alt="Abbruch Böllinger" width="600" height="354" /></a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="mainnav" aria-label="Menü öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav id="mainnav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -530,7 +530,7 @@ footer .cl a{font-weight:600}
         <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2" stroke-dasharray="6 8"/>
         <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="6 8"/>
         <circle class="ring r1" cx="200" cy="200" r="190"/><circle class="ring r2" cx="200" cy="200" r="190"/><circle class="ring r3" cx="200" cy="200" r="190"/>
-        <image href="https://shahzadishaq.site/wp-content/uploads/bollinger/offenbach-wappen.webp" x="90" y="90" width="220" height="220" clip-path="url(#cl)" preserveAspectRatio="xMidYMid slice"/>
+        <image href="assets/images/offenbach-stadt.jpg" x="90" y="90" width="220" height="220" clip-path="url(#cl)" preserveAspectRatio="xMidYMid slice"/>
         <circle cx="200" cy="200" r="92" fill="none" stroke="#fdb301" stroke-width="5"/>
         <rect x="84" y="274" width="232" height="34" rx="17" fill="#16181a" stroke="#fdb301" stroke-width="2"/>
         <text x="200" y="297" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Archivo,sans-serif">Offenbach an der Queich</text>
@@ -638,7 +638,7 @@ footer .cl a{font-weight:600}
 
 <footer>
   <div class="wrap">
-    <div><img src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-600.webp" alt="Abbruch Böllinger" width="600" height="354" /><p>Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50&nbsp;km um Offenbach an der Queich.</p></div>
+    <div><img src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-footer.webp" alt="Abbruch Böllinger" width="600" height="354" /><p>Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50&nbsp;km um Offenbach an der Queich.</p></div>
     <div><h4>Navigation</h4><ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#arbeiten">Unsere Arbeiten</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#einsatzgebiet">Einsatzgebiet</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
     <div><h4>Kontakt</h4><ul class="cl cl--f">
             <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><small>Telefon</small><a href="tel:+4963489848744">06348 9848744</a></span></li>
