@@ -96,6 +96,8 @@ header.nav.is-stuck img.logo{height:64px}
 .dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .hero::before{animation:gridmove 40s linear infinite}
 @keyframes gridmove{to{background-position:64px 64px,64px 64px}}
+.fxs{position:relative;overflow:clip}
+.fxs>.wrap{position:relative;z-index:1}
 .dark{position:relative;overflow:hidden}
 .dark>.wrap{position:relative;z-index:1}
 .dark .bgfx i:nth-child(1){background:rgba(251,165,2,.14)}.dark .bgfx i:nth-child(2){background:rgba(251,165,2,.1)}.dark .bgfx i:nth-child(3){background:rgba(255,255,255,.05)}
@@ -209,6 +211,29 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .area h2{font-size:clamp(2rem,4.2vw,3rem);margin:.9rem 0 1.2rem}
 .area p{color:#cfcfc9;margin-bottom:1.6rem}
 
+
+/* Galerie: gepinnt, vertikales Scrollen schiebt seitlich */
+.pin-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1.6rem}
+.pin:not(.pin-on){padding:clamp(3.5rem,7vw,6rem) 0 3rem}
+.pbar{display:none;height:5px;border-radius:3px;background:rgba(0,0,0,.12);margin-top:1.4rem;overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.gcta{flex:0 0 clamp(260px,30vw,360px);aspect-ratio:3/4;scroll-snap-align:start;background:var(--ink);color:#fff;border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;justify-content:center;gap:.9rem}
+.gcta h3{font-size:1.6rem}.gcta p{color:#c4c4be;font-size:1rem;line-height:1.55}
+.gcta .btn{min-height:50px;padding:.6rem 1.2rem}
+.pin-on{padding:0!important}
+.pin-on .pin-stick{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 1.6rem;overflow:hidden}
+.pin-on .gallery{overflow:hidden;scroll-snap-type:none;padding-bottom:0}
+.pin-on .gallery button,.pin-on .gcta{flex:0 0 auto;height:min(48vh,440px);aspect-ratio:3/4;width:auto}
+.pin-on .pbar{display:block}
+.pin-on .gcta{padding:1.3rem;gap:.6rem}.pin-on .gcta h3{font-size:1.35rem}.pin-on .gcta p{font-size:.92rem;line-height:1.45}
+/* Einsatzgebiet: Hintergrundbild */
+.area-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.area-bg::before{content:"";position:absolute;inset:-4%;background:url(assets/images/weinstrasse.jpg) center/cover;animation:kb 36s ease-in-out infinite alternate}
+.area-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,17,18,.93) 0%,rgba(15,17,18,.8) 45%,rgba(15,17,18,.55) 100%)}
+@keyframes kb{to{transform:scale(1.1) translate(-1.5%,1%)}}
+.ring{animation-name:ring2!important}
+@keyframes ring2{0%{transform:scale(.48);opacity:.9}100%{transform:scale(1);opacity:0}}
+
 /* cta band */
 .band{background:var(--gold);padding:clamp(2.5rem,5vw,4rem) 0}
 .band .wrap{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
@@ -249,14 +274,14 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .fh{color:var(--grey);margin-bottom:1.5rem}
 .opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
 .opt input{position:absolute;opacity:0;pointer-events:none}
-.opt label{display:flex;align-items:center;gap:1rem;min-height:84px;padding:.9rem 1.1rem;border:2px solid var(--line);border-radius:var(--r);cursor:pointer;background:var(--white);transition:border-color .25s,background-color .25s,transform .25s var(--ease),box-shadow .25s}
+.opt label{display:flex;align-items:center;gap:.9rem;min-height:84px;padding:.9rem 1.1rem;border:2px solid var(--line);border-radius:var(--r);cursor:pointer;background:var(--white);transition:border-color .25s,background-color .25s,transform .25s var(--ease),box-shadow .25s}
 .opt label:hover{border-color:var(--gold);transform:translateY(-2px)}
 .opt input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
 .opt input:checked+label{border-color:var(--gold);background:#fff7e3;box-shadow:0 12px 24px -16px rgba(217,140,0,.9)}
 .opt .ic{width:50px;height:50px;border-radius:12px;background:var(--concrete);display:grid;place-items:center;flex:none;transition:background-color .25s}
 .opt input:checked+label .ic{background:var(--gold)}
 .opt .ic svg{width:28px;height:28px}
-.opt .t{font-weight:700;line-height:1.25}.opt .t small{display:block;font-weight:500;color:var(--grey);font-size:.86rem;margin-top:.2rem}
+.opt .t{font-weight:700;line-height:1.25;min-width:0;overflow-wrap:anywhere;hyphens:auto}.opt .t small{display:block;font-weight:500;color:var(--grey);font-size:.86rem;margin-top:.2rem}
 .opt .ck{margin-left:auto;width:28px;height:28px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transform:scale(0);transition:transform .35s var(--ease);flex:none}
 .opt .ck svg{width:16px;height:16px}
 .opt input:checked+label .ck{transform:scale(1)}
@@ -294,6 +319,17 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 .legal{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid #23272a;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.88rem}
 
+
+.cl{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.cl li{display:flex;gap:.9rem;align-items:center}
+.cl .ico{width:44px;height:44px;border-radius:50%;background:rgba(251,165,2,.16);color:var(--gold);display:grid;place-items:center;flex:none;transition:background-color .3s,color .3s}
+.cl li:hover .ico{background:var(--gold);color:var(--ink)}
+.cl .ico svg{width:21px;height:21px}
+.cl small{display:block;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#9a9a94;line-height:1.3}
+.cl a{color:#fff;font-weight:700;text-decoration:none;font-size:1.02rem;line-height:1.35}
+.cl a:hover{color:var(--gold)}
+.sign .tel .tl-q{font-size:.95rem;color:#cfcfc9;margin-bottom:1rem}
+footer .cl a{font-weight:600}
 /* floating call */
 .fab{position:fixed;right:1rem;bottom:1rem;z-index:90;display:none}
 .fab a{display:flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--ink);font-weight:800;text-decoration:none;border-radius:999px;padding:1rem 1.4rem;box-shadow:0 14px 30px -10px rgba(0,0,0,.5)}
@@ -360,8 +396,6 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 <main id="top">
 <!-- HERO -->
 <div class="hero" id="hero">
-  <div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
-  <canvas class="dust" id="dust" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
       <span class="kicker fu" style="--fd:.1s">Demontage · Abbruch · Entkernung</span>
@@ -397,7 +431,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 </section>
 
 <!-- LEISTUNGEN -->
-<section id="leistungen">
+<section id="leistungen" class="fxs">
+  <div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
     <div class="sec-head rv"><span class="kicker">Leistungen</span><h2>Was wir für Sie tun</h2><p>Sechs Leistungen, ein Ansprechpartner – von der Planung bis zur Entsorgung.</p></div>
     <div class="cards">
@@ -432,7 +467,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 </section>
 
 <!-- WARUM -->
-<section>
+<section class="fxs">
+  <canvas class="dust" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="sec-head rv"><span class="kicker">Ihre Vorteile</span><h2>Warum Abbruch Böllinger?</h2></div>
     <div class="why">
@@ -445,10 +481,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 </section>
 
 <!-- GALERIE -->
-<section id="arbeiten" style="background:var(--concrete-2);padding-bottom:3rem">
-  <div class="wrap">
-    <div class="sec-head rv" style="margin-bottom:1.5rem"><span class="kicker">Unsere Arbeiten</span><h2>Einblicke in unsere Projekte</h2></div>
-    <div class="gal-ctrl"><button type="button" id="gPrev" aria-label="Vorheriges Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="gNext" aria-label="Nächstes Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<section id="arbeiten" class="pin" style="background:var(--concrete-2)">
+ <div class="pin-stick">
+  <div class="wrap pin-head">
+    <div class="sec-head rv" style="margin-bottom:0"><span class="kicker">Unsere Arbeiten</span><h2>Einblicke in unsere Projekte</h2></div>
+    <div class="gal-ctrl" style="margin:0"><button type="button" id="gPrev" aria-label="Vorheriges Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="gNext" aria-label="Nächstes Bild"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
   </div>
   <div class="gallery" id="gallery" tabindex="0" aria-label="Projektfotos, seitlich scrollbar">
     <button type="button" data-src="assets/images/g1.jpg"><img loading="lazy" src="assets/images/g1.jpg" alt="Bagger mit Hydraulikhammer bei Abbrucharbeiten an einem Haus" /><span>Abbruch mit Bagger</span></button>
@@ -458,11 +495,21 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
     <button type="button" data-src="assets/images/g2.jpg"><img loading="lazy" src="assets/images/g2.jpg" alt="Bagger und Container auf einer Baustelle" /><span>Container &amp; Bagger im Einsatz</span></button>
     <button type="button" data-src="assets/images/g7.jpg"><img loading="lazy" src="assets/images/g7.jpg" alt="Mitarbeiter bei Arbeiten an einer Gebäudefassade" /><span>Rückbau am Mauerwerk</span></button>
     <button type="button" data-src="assets/images/g4.jpg"><img loading="lazy" src="assets/images/g4.jpg" alt="Schadstoffdemontage in Schutzanzügen" /><span>Schadstoffdemontage</span></button>
+    <div class="gcta">
+      <span class="kicker" style="color:#bdbdb6">Ihr Projekt</span>
+      <h3>Ihr Projekt ist das nächste.</h3>
+      <p>Wir beraten Sie persönlich und kommen zur Besichtigung zu Ihnen.</p>
+      <a class="btn btn--gold" href="#kontakt">Angebot anfragen</a>
+      <a class="btn btn--ghost-l" href="tel:+4963489848744">06348 9848744</a>
+    </div>
   </div>
+  <div class="wrap"><div class="pbar" aria-hidden="true"><i id="pbar"></i></div></div>
+ </div>
 </section>
 
 <!-- ABLAUF -->
-<section id="ablauf">
+<section id="ablauf" class="fxs">
+  <canvas class="dust" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="sec-head rv" style="margin-inline:auto;text-align:center"><span class="kicker">Ablauf</span><h2>In drei Schritten zum Auftrag</h2></div>
     <div class="tl" id="tl">
@@ -476,16 +523,18 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 
 <!-- EINSATZGEBIET -->
 <section class="area dark" id="einsatzgebiet">
-  <div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="area-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="radar rv" aria-hidden="true">
+    <div class="radar rv" role="img" aria-label="Landau in der Pfalz mit ca. 50 km Einsatzgebiet">
       <svg viewBox="0 0 400 400">
-        <circle cx="200" cy="200" r="190" fill="none" stroke="#2f3438" stroke-width="2" stroke-dasharray="6 8"/>
-        <circle cx="200" cy="200" r="126" fill="none" stroke="#2f3438" stroke-width="2" stroke-dasharray="6 8"/>
-        <circle cx="200" cy="200" r="62" fill="none" stroke="#2f3438" stroke-width="2" stroke-dasharray="6 8"/>
+        <defs><clipPath id="cl"><circle cx="200" cy="200" r="92"/></clipPath></defs>
+        <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2" stroke-dasharray="6 8"/>
+        <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="6 8"/>
         <circle class="ring r1" cx="200" cy="200" r="190"/><circle class="ring r2" cx="200" cy="200" r="190"/><circle class="ring r3" cx="200" cy="200" r="190"/>
-        <circle cx="200" cy="200" r="13" fill="#fba502"/><circle cx="200" cy="200" r="5" fill="#16181a"/>
-        <text x="200" y="244" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="Archivo,sans-serif">Landau in der Pfalz</text>
+        <image href="assets/images/landau.jpg" x="90" y="90" width="220" height="220" clip-path="url(#cl)" preserveAspectRatio="xMidYMid slice"/>
+        <circle cx="200" cy="200" r="92" fill="none" stroke="#fba502" stroke-width="5"/>
+        <rect x="104" y="274" width="192" height="34" rx="17" fill="#16181a" stroke="#fba502" stroke-width="2"/>
+        <text x="200" y="297" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Archivo,sans-serif">Landau in der Pfalz</text>
         <text x="200" y="22" text-anchor="middle" fill="#fba502" font-size="17" font-weight="700" font-family="Archivo,sans-serif">ca. 50 km</text>
       </svg>
     </div>
@@ -507,7 +556,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 </div>
 
 <!-- KONTAKT / FUNNEL -->
-<section class="contact" id="kontakt">
+<section class="contact fxs" id="kontakt">
+  <div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
     <aside class="sign rv" aria-label="Ihre Angaben im Überblick">
       <div class="stripe" aria-hidden="true"></div>
@@ -519,9 +569,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
           <dt>Start</dt><dd id="s-zeitraum">—</dd>
           <dt>Standort</dt><dd id="s-ort">—</dd>
         </dl>
-        <div class="tel">Lieber direkt sprechen?
-          <a href="tel:+4963489848744">06348 9848744</a>
-          <ul class="ct"><li><a href="tel:+4917665357084">Mobil 0176 65357084</a></li><li><a href="mailto:markusboellinger@web.de">markusboellinger@web.de</a></li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=Im+Schlangengarten+40,+76877+Offenbach+an+der+Queich" target="_blank" rel="noopener">Im Schlangengarten 40<br>76877 Offenbach an der Queich</a></li></ul>
+        <div class="tel"><p class="tl-q">Lieber direkt sprechen?</p>
+          <ul class="cl">
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><small>Telefon</small><a href="tel:+4963489848744">06348 9848744</a></span></li>
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg></span><span><small>Mobil</small><a href="tel:+4917665357084">0176 65357084</a></span></li>
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><a href="mailto:markusboellinger@web.de">markusboellinger@web.de</a></span></li>
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><small>Adresse</small><a href="https://www.google.com/maps/search/?api=1&amp;query=Im+Schlangengarten+40,+76877+Offenbach+an+der+Queich" target="_blank" rel="noopener">Im Schlangengarten 40<br>76877 Offenbach an der Queich</a></span></li>
+          </ul>
         </div>
       </div>
     </aside>
@@ -593,7 +647,12 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
   <div class="wrap">
     <div><img src="assets/images/logo-abbruch-boellinger-dunkel.png" alt="Abbruch Böllinger" width="800" height="444" /><p>Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50&nbsp;km um Landau in der Pfalz.</p></div>
     <div><h4>Navigation</h4><ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#arbeiten">Unsere Arbeiten</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#einsatzgebiet">Einsatzgebiet</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
-    <div><h4>Kontakt</h4><ul><li><a href="tel:+4963489848744">06348 9848744</a></li><li><a href="tel:+4917665357084">0176 65357084</a></li><li><a href="mailto:markusboellinger@web.de">markusboellinger@web.de</a></li><li>Im Schlangengarten 40<br>76877 Offenbach an der Queich</li></ul></div>
+    <div><h4>Kontakt</h4><ul class="cl cl--f">
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><small>Telefon</small><a href="tel:+4963489848744">06348 9848744</a></span></li>
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg></span><span><small>Mobil</small><a href="tel:+4917665357084">0176 65357084</a></span></li>
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><a href="mailto:markusboellinger@web.de">markusboellinger@web.de</a></span></li>
+            <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><small>Adresse</small><a href="https://www.google.com/maps/search/?api=1&amp;query=Im+Schlangengarten+40,+76877+Offenbach+an+der+Queich" target="_blank" rel="noopener">Im Schlangengarten 40<br>76877 Offenbach an der Queich</a></span></li>
+          </ul></div>
   </div>
   <div class="wrap legal"><span>© 2026 Abbruch Böllinger</span><span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></span></div>
 </footer>
@@ -625,7 +684,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
     prog.style.transform='scaleX('+(h>0?y/h:0)+')';
     nav.classList.toggle('is-stuck', y>40);
     if(par && !reduce){ var r=par.parentNode.getBoundingClientRect(); if(r.bottom>0&&r.top<innerHeight){ par.style.transform='translateY('+(-(r.top/innerHeight)*28)+'px)'; } }
-    tlUpdate(); ticking=false;
+    tlUpdate(); pinUpdate(); ticking=false;
   }
   addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(onScroll);} },{passive:true});
 
@@ -650,8 +709,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
     steps.forEach(function(s){ var sr=s.getBoundingClientRect(); s.classList.toggle('is-on', reduce || sr.top+sr.height/2<mid); }); }
 
   /* gallery + lightbox */
-  var g=$('#gallery'), items=$$('button',g), cur=0, lb=$('#lb'), lbImg=$('#lbImg');
-  function scrollG(d){ g.scrollBy({left:d*Math.min(380,g.clientWidth*.8),behavior:reduce?'auto':'smooth'}); }
+  var g=$('#gallery'), items=$$('button[data-src]',g), cur=0, lb=$('#lb'), lbImg=$('#lbImg');
+  var sec=$('#arbeiten'), pinOn=false, travel=0, pbar=$('#pbar');
+  function step(){ return items[0].getBoundingClientRect().width+19.2; }
+  function scrollG(d){ if(pinOn){ window.scrollBy({top:d*step(),behavior:reduce?'auto':'smooth'}); } else g.scrollBy({left:d*Math.min(380,g.clientWidth*.8),behavior:reduce?'auto':'smooth'}); }
+  function pinSetup(){ var want=innerWidth>=900&&!reduce; sec.classList.toggle('pin-on',want); pinOn=want; sec.style.height='';
+    if(want){ g.scrollLeft=0; travel=Math.max(0,g.scrollWidth-g.clientWidth); sec.style.height=(innerHeight+travel)+'px'; } pinUpdate(); }
+  function pinUpdate(){ if(!pinOn||!travel) return; var r=sec.getBoundingClientRect(), p=Math.max(0,Math.min(1,-r.top/travel)); g.scrollLeft=p*travel; pbar.style.transform='scaleX('+p+')'; }
   $('#gPrev').addEventListener('click',function(){scrollG(-1)}); $('#gNext').addEventListener('click',function(){scrollG(1)});
   function show(i){ cur=(i+items.length)%items.length; var im=$('img',items[cur]); lbImg.src=items[cur].getAttribute('data-src'); lbImg.alt=im.alt; }
   items.forEach(function(b,i){ b.addEventListener('click',function(){ show(i); lb.classList.add('on'); $('#lbX').focus(); }); });
@@ -736,11 +800,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
   showStep(false);
   addEventListener('resize',function(){ showStep(false); });
 
-  /* Staub-Partikel im Hero (ruhig, pausiert außerhalb des Bildschirms) */
-  (function(){
-    var cv=document.getElementById('dust'); if(!cv||reduce) return; var ctx=cv.getContext('2d'), W,H,P=[],vis=true,raf;
-    function size(){ var r=cv.parentNode.getBoundingClientRect(); W=cv.width=r.width; H=cv.height=r.height; var n=Math.round(Math.min(70,W/20)); P=[]; for(var i=0;i<n;i++) P.push(mk(true)); }
-    function mk(init){ return {x:Math.random()*W,y:init?Math.random()*H:H+10,r:Math.random()*2.6+.8,vy:Math.random()*.35+.12,vx:(Math.random()-.5)*.25,a:Math.random()*.4+.15,g:Math.random()<.45,ph:Math.random()*6.28}; }
+  /* Staub-Partikel (ruhig, pausiert außerhalb des Bildschirms) */
+  $$('canvas.dust').forEach(function(cv){
+    if(reduce) return; var ctx=cv.getContext('2d'), W,H,P=[],vis=true,raf;
+    function size(){ var r=cv.parentNode.getBoundingClientRect(); W=cv.width=r.width; H=cv.height=r.height; var n=Math.round(Math.min(60,W/22)); P=[]; for(var i=0;i<n;i++) P.push(mk(true)); }
+    function mk(init){ return {x:Math.random()*W,y:init?Math.random()*H:H+10,r:Math.random()*2.6+1,vy:Math.random()*.35+.12,vx:(Math.random()-.5)*.25,a:Math.random()*.4+.25,g:Math.random()<.55,ph:Math.random()*6.28}; }
     function tick(t){ if(!vis){raf=0;return;} ctx.clearRect(0,0,W,H);
       P.forEach(function(p){ p.y-=p.vy; p.x+=p.vx+Math.sin(t/1800+p.ph)*.15; if(p.y<-10) Object.assign(p,mk(false),{x:Math.random()*W});
         ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fillStyle=p.g?'rgba(251,165,2,'+p.a+')':'rgba(90,95,100,'+(p.a*.7)+')'; ctx.fill(); });
@@ -748,7 +812,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
     size(); addEventListener('resize',size);
     if('IntersectionObserver' in window) new IntersectionObserver(function(e){ vis=e[0].isIntersecting; if(vis&&!raf) raf=requestAnimationFrame(tick); }).observe(cv.parentNode);
     raf=requestAnimationFrame(tick);
-  })();
+  });
+  pinSetup(); addEventListener('resize',function(){ pinSetup(); onScroll(); }); addEventListener('load',function(){ pinSetup(); });
   onScroll();
 })();
 </script>
