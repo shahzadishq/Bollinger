@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Abbruch Böllinger – Abbruch, Demontage &amp; Entkernung | Design 2</title>
-<meta name="description" content="Abbruch Böllinger aus Offenbach an der Queich: Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50 km um Landau in der Pfalz." />
+<meta name="description" content="Abbruch Böllinger aus Offenbach an der Queich: Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50 km um Offenbach an der Queich." />
 <meta name="theme-color" content="#16181a" />
 <meta name="robots" content="noindex" />
 <link rel="icon" href="assets/images/favicon.png" type="image/png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
-  --gold:#fba502; --gold-d:#d98c00; --ink:#16181a; --ink-2:#23272a; --concrete:#efece6; --concrete-2:#e4e0d8;
+  --gold:#fdb301; --gold-d:#d99700; --fh:"Anton",Impact,"Arial Narrow",sans-serif; --ink:#16181a; --ink-2:#23272a; --concrete:#efece6; --concrete-2:#e4e0d8;
   --white:#fff; --grey:#4a4f53; --line:#d9d4ca; --red:#b3261e;
   --ff:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --ease:cubic-bezier(.22,.7,.2,1); --r:14px; --wrap:1180px;
@@ -24,7 +24,8 @@ html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100
 body{margin:0;font-family:var(--ff);font-size:19px;line-height:1.7;color:var(--ink);background:var(--concrete);overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3{line-height:1.12;margin:0;font-weight:800;letter-spacing:-.01em}
+h1,h2,h3{line-height:1.1;margin:0;font-family:var(--fh);font-weight:400;letter-spacing:.01em;text-transform:uppercase}
+legend.fq,footer h4{font-family:var(--fh);font-weight:400;letter-spacing:.02em;text-transform:uppercase}
 p{margin:0}
 .wrap{width:min(var(--wrap),100% - 2.5rem);margin-inline:auto}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -40,7 +41,7 @@ p{margin:0}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:56px;padding:.9rem 1.7rem;border-radius:999px;border:2px solid transparent;font:inherit;font-weight:700;font-size:1.02rem;text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),background-color .25s,color .25s,border-color .25s,box-shadow .25s}
 .btn svg{width:22px;height:22px;flex:none}
 .btn--gold{background:var(--gold);color:var(--ink)}
-.btn--gold:hover{background:var(--gold-d);transform:translateY(-2px);box-shadow:0 14px 24px -12px rgba(217,140,0,.8)}
+.btn--gold:hover{background:var(--gold-d);transform:translateY(-2px);box-shadow:0 14px 24px -12px rgba(217,151,0,.8)}
 .btn--ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn--ghost:hover{background:var(--ink);color:var(--white)}
 .btn--ghost-l{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
@@ -87,8 +88,8 @@ header.nav.is-stuck img.logo{height:64px}
 /* Hintergrund-Bewegung */
 .bgfx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .bgfx i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;will-change:transform}
-.bgfx i:nth-child(1){width:420px;height:420px;background:rgba(251,165,2,.35);left:-100px;top:-80px;animation:drift1 22s ease-in-out infinite alternate}
-.bgfx i:nth-child(2){width:520px;height:520px;background:rgba(251,165,2,.22);right:-160px;bottom:-140px;animation:drift2 28s ease-in-out infinite alternate}
+.bgfx i:nth-child(1){width:420px;height:420px;background:rgba(253,179,1,.35);left:-100px;top:-80px;animation:drift1 22s ease-in-out infinite alternate}
+.bgfx i:nth-child(2){width:520px;height:520px;background:rgba(253,179,1,.22);right:-160px;bottom:-140px;animation:drift2 28s ease-in-out infinite alternate}
 .bgfx i:nth-child(3){width:300px;height:300px;background:rgba(120,126,132,.25);left:45%;top:30%;animation:drift3 26s ease-in-out infinite alternate}
 @keyframes drift1{to{transform:translate(220px,140px) scale(1.2)}}
 @keyframes drift2{to{transform:translate(-240px,-120px) scale(1.15)}}
@@ -100,7 +101,7 @@ header.nav.is-stuck img.logo{height:64px}
 .fxs>.wrap{position:relative;z-index:1}
 .dark{position:relative;overflow:hidden}
 .dark>.wrap{position:relative;z-index:1}
-.dark .bgfx i:nth-child(1){background:rgba(251,165,2,.14)}.dark .bgfx i:nth-child(2){background:rgba(251,165,2,.1)}.dark .bgfx i:nth-child(3){background:rgba(255,255,255,.05)}
+.dark .bgfx i:nth-child(1){background:rgba(253,179,1,.14)}.dark .bgfx i:nth-child(2){background:rgba(253,179,1,.1)}.dark .bgfx i:nth-child(3){background:rgba(255,255,255,.05)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
 .badge{display:inline-flex;align-items:center;gap:.8rem;margin-top:2rem;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:.8rem 1.1rem;font-size:.95rem;font-weight:600}
 .badge svg{width:30px;height:30px;color:var(--gold-d);flex:none}
@@ -115,7 +116,7 @@ header.nav.is-stuck img.logo{height:64px}
 .hero.is-on .tiles b{transform:translateY(46px) rotate(var(--rot,4deg));opacity:0}
 .hero-tag{position:absolute;left:1rem;bottom:1rem;right:1rem;background:rgba(22,24,26,.86);backdrop-filter:blur(6px);color:#fff;border-radius:12px;padding:.8rem 1rem;font-size:.92rem;display:flex;gap:.7rem;align-items:center}
 .hero-tag i{width:12px;height:12px;border-radius:50%;background:var(--gold);flex:none;animation:pulse 2.4s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(251,165,2,.6)}70%{box-shadow:0 0 0 12px rgba(251,165,2,0)}100%{box-shadow:0 0 0 0 rgba(251,165,2,0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(253,179,1,.6)}70%{box-shadow:0 0 0 12px rgba(253,179,1,0)}100%{box-shadow:0 0 0 0 rgba(253,179,1,0)}}
 
 /* hazard band */
 .hazard{background:repeating-linear-gradient(-45deg,var(--gold) 0 26px,var(--ink) 26px 52px);background-size:74px 74px;height:22px;animation:slide 14s linear infinite}
@@ -131,7 +132,7 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 
 /* stats */
 .stats{padding:0;margin-top:-1px}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
 .stat{padding:2rem 1.2rem;border-right:1px solid #2f3438;text-align:center}
 .stat:last-child{border-right:0}
 .stat strong{display:block;font-size:clamp(2rem,4vw,3rem);color:var(--gold);font-weight:800;line-height:1.1}
@@ -229,7 +230,7 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .pin-on .gcta{padding:1.3rem;gap:.6rem}.pin-on .gcta h3{font-size:1.35rem}.pin-on .gcta p{font-size:.92rem;line-height:1.45}
 /* Einsatzgebiet: Hintergrundbild */
 .area-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.area-bg::before{content:"";position:absolute;inset:-4%;background:url(assets/images/weinstrasse.jpg) center/cover;animation:kb 36s ease-in-out infinite alternate}
+.area-bg::before{content:"";position:absolute;inset:-4%;background:url(https://shahzadishaq.site/wp-content/uploads/bollinger/offenbach-hauptstrasse.webp) center/cover;animation:kb 36s ease-in-out infinite alternate}
 .area-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,17,18,.93) 0%,rgba(15,17,18,.8) 45%,rgba(15,17,18,.55) 100%)}
 @keyframes kb{to{transform:scale(1.1) translate(-1.5%,1%)}}
 .ring{animation-name:ring2!important}
@@ -242,17 +243,19 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .band .cta{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* funnel */
-.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
-.sign{position:sticky;top:110px;background:var(--ink);color:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:stretch}
+.sign{position:relative;display:flex;flex-direction:column;background:var(--ink);color:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
 .sign .stripe{height:16px;background:repeating-linear-gradient(-45deg,var(--gold) 0 16px,var(--ink) 16px 32px)}
-.sign .in{padding:1.4rem 1.5rem 1.6rem}
+.sign .in{padding:1.4rem 1.5rem 1.6rem;flex:1;display:flex;flex-direction:column}
 .sign h3{font-size:1.15rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .sign dl{margin:0;display:grid;gap:.1rem}
 .sign dt{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#9a9a94;margin-top:.8rem}
 .sign dd{margin:0;font-size:1.1rem;font-weight:700;min-height:1.7em;border-bottom:1px dashed #3a4045;padding-bottom:.3rem;color:#6d7378}
 .sign dd.set{color:#fff;animation:pop .6s var(--ease)}
-@keyframes pop{0%{background:rgba(251,165,2,.5);transform:translateX(-6px)}100%{background:transparent;transform:none}}
-.sign .tel{margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid #2f3438;font-size:.95rem;color:#cfcfc9}
+@keyframes pop{0%{background:rgba(253,179,1,.5);transform:translateX(-6px)}100%{background:transparent;transform:none}}
+.sign .tel{font-size:.95rem;color:#cfcfc9}
+.sign-pic{margin:1.4rem 0 0;border-radius:calc(var(--r) - 4px);overflow:hidden;flex:1 1 auto;min-height:260px;position:relative}
+.sign-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .sign .tel>a{color:#fff;font-weight:700;text-decoration:none;display:block;font-size:1.25rem}
 .sign .tel>a:hover{color:var(--gold)}
 .sign ul.ct{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.5rem;font-size:.95rem;color:#cfcfc9}
@@ -278,7 +281,7 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .opt label{display:flex;align-items:center;gap:.9rem;min-height:84px;padding:.9rem 1.1rem;border:2px solid var(--line);border-radius:var(--r);cursor:pointer;background:var(--white);transition:border-color .25s,background-color .25s,transform .25s var(--ease),box-shadow .25s}
 .opt label:hover{border-color:var(--gold);transform:translateY(-2px)}
 .opt input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
-.opt input:checked+label{border-color:var(--gold);background:#fff7e3;box-shadow:0 12px 24px -16px rgba(217,140,0,.9)}
+.opt input:checked+label{border-color:var(--gold);background:#fff7e3;box-shadow:0 12px 24px -16px rgba(217,151,0,.9)}
 .opt .ic{width:50px;height:50px;border-radius:12px;background:var(--concrete);display:grid;place-items:center;flex:none;transition:background-color .25s}
 .opt input:checked+label .ic{background:var(--gold)}
 .opt .ic svg{width:28px;height:28px}
@@ -323,7 +326,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 
 .cl{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
 .cl li{display:flex;gap:.9rem;align-items:center}
-.cl .ico{width:44px;height:44px;border-radius:50%;background:rgba(251,165,2,.16);color:var(--gold);display:grid;place-items:center;flex:none;transition:background-color .3s,color .3s}
+.cl .ico{width:44px;height:44px;border-radius:50%;background:rgba(253,179,1,.16);color:var(--gold);display:grid;place-items:center;flex:none;transition:background-color .3s,color .3s}
 .cl li:hover .ico{background:var(--gold);color:var(--ink)}
 .cl .ico svg{width:21px;height:21px}
 .cl small{display:block;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#9a9a94;line-height:1.3}
@@ -347,8 +350,8 @@ footer .cl a{font-weight:600}
   .hero .wrap,.about .wrap,.area .wrap,.contact .wrap{grid-template-columns:1fr}
   .hero-media{max-width:480px;aspect-ratio:4/4.4}
   .cards{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:repeat(2,1fr)}
-  .stats .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #2f3438}
-  .sign{position:static}
+  .stats .wrap{grid-template-columns:repeat(3,1fr)}
+  .sign{position:static}.sign-pic{flex:none;aspect-ratio:4/3;min-height:0}
   footer .wrap{grid-template-columns:1fr 1fr}.fab{display:block}
 }
 @media (max-width:620px){
@@ -356,6 +359,7 @@ footer .cl a{font-weight:600}
   .top .hide{display:none}
   .nav .wrap{min-height:88px}.nav img.logo{height:68px}header.nav.is-stuck img.logo{height:56px}footer img{height:90px}
   .cards,.why,.opts,.grid2{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid #2f3438}.stat:last-child{border-bottom:0}
   footer .wrap{grid-template-columns:1fr}
   .tl{padding-left:70px}.tl-line{left:24px}.tl-step .n{left:-70px;width:52px;height:52px;font-size:1.3rem}
   .fnav .btn{min-width:0}.fnav .next{flex:1;min-width:0}
@@ -381,7 +385,7 @@ footer .cl a{font-weight:600}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#top" aria-label="Abbruch Böllinger – zur Startseite"><img class="logo" src="assets/images/logo-abbruch-boellinger.png" alt="Abbruch Böllinger" width="800" height="443" /></a>
+    <a href="#top" aria-label="Abbruch Böllinger – zur Startseite"><img class="logo" src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-600.webp" alt="Abbruch Böllinger" width="600" height="354" /></a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="mainnav" aria-label="Menü öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav id="mainnav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -406,10 +410,6 @@ footer .cl a{font-weight:600}
         <a class="btn btn--gold" href="#kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Angebot anfragen</a>
         <a class="btn btn--ghost" href="tel:+4963489848744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Jetzt anrufen</a>
       </div>
-      <div class="badge fu" style="--fd:.85s">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
-        <span>Zertifizierter Fachbetrieb seit 2009<small>heute nach § 62 AwSV</small></span>
-      </div>
     </div>
     <div class="hero-media" id="heroMedia">
       <img src="assets/images/hero.jpg" alt="Orangefarbener Bagger von Abbruch Böllinger auf einer Abbruchfläche" width="720" height="960" fetchpriority="high" />
@@ -424,8 +424,7 @@ footer .cl a{font-weight:600}
 <section class="stats dark" aria-label="Zahlen und Fakten">
   <div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
-    <div class="stat rv"><strong>seit 2009</strong><span>Zertifizierter Fachbetrieb</span></div>
-    <div class="stat rv" style="--d:.1s"><strong><span data-count="50">0</span> km</strong><span>Einsatzgebiet um Landau</span></div>
+    <div class="stat rv"><strong><span data-count="50">0</span> km</strong><span>Einsatzgebiet um Offenbach</span></div>
     <div class="stat rv" style="--d:.2s"><strong><span data-count="6">0</span></strong><span>Leistungen aus einer Hand</span></div>
     <div class="stat rv" style="--d:.3s"><strong>bis <span data-count="40">0</span> m³</strong><span>Abrollcontainer</span></div>
   </div>
@@ -455,12 +454,11 @@ footer .cl a{font-weight:600}
     <div class="rv" style="--d:.1s">
       <span class="kicker">Über uns</span>
       <h2>Erfahrung und persönliche Betreuung</h2>
-      <p>Abbruch Böllinger ist ein Familienbetrieb. Als Fachbetrieb sind wir seit 2009 für Anlagen zum Umgang mit wassergefährdenden Stoffen zertifiziert (heute nach § 62 AwSV). 2022 haben Markus und Joshua Böllinger den Betrieb übernommen.</p>
+      <p>Abbruch Böllinger ist ein Familienbetrieb. 2022 haben Markus und Joshua Böllinger den Betrieb übernommen.</p>
       <p>Bei uns sprechen Sie direkt mit den Inhabern – von der ersten Anfrage bis zur Übergabe.</p>
       <ul class="facts">
         <li><span>Inhaber</span><span>Markus &amp; Joshua Böllinger</span></li>
         <li><span>Standort</span><span>Offenbach an der Queich</span></li>
-        <li><span>Fachbetrieb</span><span>Zertifiziert seit 2009</span></li>
       </ul>
       <a class="btn btn--gold" href="#kontakt">Kontakt aufnehmen</a>
     </div>
@@ -526,23 +524,23 @@ footer .cl a{font-weight:600}
 <section class="area dark" id="einsatzgebiet">
   <div class="area-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="radar rv" role="img" aria-label="Landau in der Pfalz mit ca. 50 km Einsatzgebiet">
+    <div class="radar rv" role="img" aria-label="Offenbach an der Queich mit ca. 50 km Einsatzgebiet">
       <svg viewBox="0 0 400 400">
         <defs><clipPath id="cl"><circle cx="200" cy="200" r="92"/></clipPath></defs>
         <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2" stroke-dasharray="6 8"/>
         <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2" stroke-dasharray="6 8"/>
         <circle class="ring r1" cx="200" cy="200" r="190"/><circle class="ring r2" cx="200" cy="200" r="190"/><circle class="ring r3" cx="200" cy="200" r="190"/>
-        <image href="assets/images/landau.jpg" x="90" y="90" width="220" height="220" clip-path="url(#cl)" preserveAspectRatio="xMidYMid slice"/>
-        <circle cx="200" cy="200" r="92" fill="none" stroke="#fba502" stroke-width="5"/>
-        <rect x="104" y="274" width="192" height="34" rx="17" fill="#16181a" stroke="#fba502" stroke-width="2"/>
-        <text x="200" y="297" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Archivo,sans-serif">Landau in der Pfalz</text>
-        <text x="200" y="22" text-anchor="middle" fill="#fba502" font-size="17" font-weight="700" font-family="Archivo,sans-serif">ca. 50 km</text>
+        <image href="assets/images/offenbach-stadt.jpg" x="90" y="90" width="220" height="220" clip-path="url(#cl)" preserveAspectRatio="xMidYMid slice"/>
+        <circle cx="200" cy="200" r="92" fill="none" stroke="#fdb301" stroke-width="5"/>
+        <rect x="84" y="274" width="232" height="34" rx="17" fill="#16181a" stroke="#fdb301" stroke-width="2"/>
+        <text x="200" y="297" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Archivo,sans-serif">Offenbach an der Queich</text>
+        <text x="200" y="22" text-anchor="middle" fill="#fdb301" font-size="17" font-weight="700" font-family="Archivo,sans-serif">ca. 50 km</text>
       </svg>
     </div>
     <div class="rv" style="--d:.1s">
       <span class="kicker">Einsatzgebiet</span>
-      <h2>Rund um Landau in der Pfalz</h2>
-      <p>Wir sind im Umkreis von ca. 50&nbsp;km um Landau in der Pfalz für Sie im Einsatz. Unser Firmensitz ist in Offenbach an der Queich. Liegt Ihr Objekt am Rand oder außerhalb? Fragen Sie einfach nach – wir prüfen es gern.</p>
+      <h2>Rund um Offenbach an der Queich</h2>
+      <p>Wir sind im Umkreis von ca. 50&nbsp;km um unseren Firmensitz in Offenbach an der Queich für Sie im Einsatz. Liegt Ihr Objekt am Rand oder außerhalb? Fragen Sie einfach nach – wir prüfen es gern.</p>
       <a class="btn btn--gold" href="#kontakt" data-note="Standort prüfen lassen">Standort prüfen lassen</a>
     </div>
   </div>
@@ -560,17 +558,11 @@ footer .cl a{font-weight:600}
 <section class="contact fxs" id="kontakt">
   <div class="bgfx" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
-    <aside class="sign rv" aria-label="Ihre Angaben im Überblick">
+    <aside class="sign rv" aria-label="Kontakt und Team">
       <div class="stripe" aria-hidden="true"></div>
       <div class="in">
-        <h3>Ihr Projekt</h3>
-        <dl>
-          <dt>Leistung</dt><dd id="s-leistung">—</dd>
-          <dt>Objekt</dt><dd id="s-objekt">—</dd>
-          <dt>Start</dt><dd id="s-zeitraum">—</dd>
-          <dt>Standort</dt><dd id="s-ort">—</dd>
-        </dl>
-        <div class="tel"><p class="tl-q">Lieber direkt sprechen?</p>
+        <h3>Lieber direkt sprechen?</h3>
+        <div class="tel">
           <ul class="cl">
             <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><small>Telefon</small><a href="tel:+4963489848744">06348 9848744</a></span></li>
             <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 18h.01"/></svg></span><span><small>Mobil</small><a href="tel:+4917665357084">0176 65357084</a></span></li>
@@ -578,6 +570,7 @@ footer .cl a{font-weight:600}
             <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><small>Adresse</small><a href="https://www.google.com/maps/search/?api=1&amp;query=Im+Schlangengarten+40,+76877+Offenbach+an+der+Queich" target="_blank" rel="noopener">Im Schlangengarten 40<br>76877 Offenbach an der Queich</a></span></li>
           </ul>
         </div>
+      <figure class="sign-pic"><img loading="lazy" src="https://shahzadishaq.site/wp-content/uploads/bollinger/boellinger-team.webp" alt="Mitarbeiter von Abbruch Böllinger bei Demontagearbeiten in einem Innenraum" width="720" height="960" /></figure>
       </div>
     </aside>
 
@@ -587,7 +580,7 @@ footer .cl a{font-weight:600}
       <form id="funnel" novalidate>
         <div class="fbody">
           <div class="track" aria-hidden="true">
-            <div class="dig" id="dig"><svg viewBox="0 0 120 70" fill="currentColor"><rect x="6" y="52" width="70" height="14" rx="7"/><circle cx="16" cy="59" r="3" fill="#fba502"/><circle cx="41" cy="59" r="3" fill="#fba502"/><circle cx="66" cy="59" r="3" fill="#fba502"/><path d="M14 52V36a4 4 0 0 1 4-4h34a4 4 0 0 1 4 4v16z"/><path d="M40 32V14a3 3 0 0 1 3-3h14l8 21z" fill="#fba502"/><g class="arm"><path d="M60 38 82 14l7 6-18 24z"/><path d="M86 16 106 36l-7 5-18-19z"/><path d="M104 34l10 14h-14z" fill="#fba502"/></g></svg></div>
+            <div class="dig" id="dig"><svg viewBox="0 0 120 70" fill="currentColor"><rect x="6" y="52" width="70" height="14" rx="7"/><circle cx="16" cy="59" r="3" fill="#fdb301"/><circle cx="41" cy="59" r="3" fill="#fdb301"/><circle cx="66" cy="59" r="3" fill="#fdb301"/><path d="M14 52V36a4 4 0 0 1 4-4h34a4 4 0 0 1 4 4v16z"/><path d="M40 32V14a3 3 0 0 1 3-3h14l8 21z" fill="#fdb301"/><g class="arm"><path d="M60 38 82 14l7 6-18 24z"/><path d="M86 16 106 36l-7 5-18-19z"/><path d="M104 34l10 14h-14z" fill="#fdb301"/></g></svg></div>
             <div class="rail"><i id="rail"></i></div>
           </div>
           <div class="stepmeta"><span id="slabel" aria-live="polite">Schritt 1 von 5</span><b id="spct">0 %</b></div>
@@ -609,7 +602,7 @@ footer .cl a{font-weight:600}
           </fieldset>
           <fieldset class="fs" data-key="ort" hidden>
             <legend class="fq" tabindex="-1">Wo befindet sich das Objekt?</legend>
-            <p class="fh">So prüfen wir, ob Ihr Standort in unserem Einsatzgebiet (ca. 50&nbsp;km um Landau in der Pfalz) liegt.</p>
+            <p class="fh">So prüfen wir, ob Ihr Standort in unserem Einsatzgebiet (ca. 50&nbsp;km um Offenbach an der Queich) liegt.</p>
             <div class="field"><label for="f-ort">PLZ und Ort *</label><input id="f-ort" name="ort" type="text" autocomplete="postal-code" placeholder="z. B. 76877 Offenbach an der Queich" required /></div>
           </fieldset>
           <fieldset class="fs" data-key="kontakt" hidden>
@@ -630,7 +623,6 @@ footer .cl a{font-weight:600}
             <button type="button" class="btn btn--ghost back" id="back" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Zurück</button>
             <button type="submit" class="btn btn--gold next" id="next"><span>Weiter</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </div>
-          <ul class="trust"><li>Unverbindlich</li><li>Persönliche Beratung</li><li>Transparente Kosten</li></ul>
         </div>
         <div class="done" id="done" tabindex="-1" hidden>
           <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#16181a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
@@ -646,7 +638,7 @@ footer .cl a{font-weight:600}
 
 <footer>
   <div class="wrap">
-    <div><img src="assets/images/logo-abbruch-boellinger-dunkel.png" alt="Abbruch Böllinger" width="800" height="444" /><p>Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50&nbsp;km um Landau in der Pfalz.</p></div>
+    <div><img src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-600.webp" alt="Abbruch Böllinger" width="600" height="354" /><p>Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50&nbsp;km um Offenbach an der Queich.</p></div>
     <div><h4>Navigation</h4><ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#arbeiten">Unsere Arbeiten</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#einsatzgebiet">Einsatzgebiet</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
     <div><h4>Kontakt</h4><ul class="cl cl--f">
             <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><small>Telefon</small><a href="tel:+4963489848744">06348 9848744</a></span></li>
@@ -751,7 +743,7 @@ footer .cl a{font-weight:600}
   var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="#16181a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>';
   Object.keys(DATA).forEach(function(k){ var box=$('#o-'+k); DATA[k].forEach(function(o,i){
     var d=document.createElement('div'); d.className='opt'; var id='f-'+k+'-'+i;
-    d.innerHTML='<input type="radio" name="'+k+'" id="'+id+'" value="'+o[0]+'" data-text="'+o[1].replace(/&/g,'&amp;')+'"><label for="'+id+'"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+IC[o[0]]+'</svg></span><span class="t">'+o[1].replace(/&/g,'&amp;')+(o[2]?'<small>'+o[2]+'</small>':'')+'</span><span class="ck">'+CHECK+'</span></label>';
+    d.innerHTML='<input type="radio" name="'+k+'" id="'+id+'" value="'+o[0]+'" data-text="'+o[1].replace(/&/g,'&amp;')+'"><label for="'+id+'"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+IC[o[0]]+'</svg></span><span class="t">'+o[1].replace(/&/g,'&amp;')+'</span><span class="ck">'+CHECK+'</span></label>';
     box.appendChild(d); }); });
 
   var f=$('#funnel'), fs=$$('.fs',f), cur2=0, N=fs.length, err=$('#ferr'), back=$('#back'), next=$('#next');
@@ -808,7 +800,7 @@ footer .cl a{font-weight:600}
     function mk(init){ return {x:Math.random()*W,y:init?Math.random()*H:H+10,r:Math.random()*2.6+1,vy:Math.random()*.35+.12,vx:(Math.random()-.5)*.25,a:Math.random()*.4+.25,g:Math.random()<.55,ph:Math.random()*6.28}; }
     function tick(t){ if(!vis){raf=0;return;} ctx.clearRect(0,0,W,H);
       P.forEach(function(p){ p.y-=p.vy; p.x+=p.vx+Math.sin(t/1800+p.ph)*.15; if(p.y<-10) Object.assign(p,mk(false),{x:Math.random()*W});
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fillStyle=p.g?'rgba(251,165,2,'+p.a+')':'rgba(90,95,100,'+(p.a*.7)+')'; ctx.fill(); });
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fillStyle=p.g?'rgba(253,179,1,'+p.a+')':'rgba(90,95,100,'+(p.a*.7)+')'; ctx.fill(); });
       raf=requestAnimationFrame(tick); }
     size(); addEventListener('resize',size);
     if('IntersectionObserver' in window) new IntersectionObserver(function(e){ vis=e[0].isIntersecting; if(vis&&!raf) raf=requestAnimationFrame(tick); }).observe(cv.parentNode);
