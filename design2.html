@@ -54,6 +54,7 @@ p{margin:0}
 .top .wrap{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;flex-wrap:wrap}
 .top a{text-decoration:none}.top a:hover{color:var(--gold)}
 .top span{display:inline-flex;gap:.5rem;align-items:center}
+.top .mob{display:none}
 header.nav{position:sticky;top:0;z-index:100;background:rgba(239,236,230,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
 header.nav.is-stuck{box-shadow:0 10px 30px -18px rgba(0,0,0,.45)}
 .nav .wrap{display:flex;align-items:center;gap:1.5rem;min-height:110px;transition:min-height .3s var(--ease)}
@@ -76,7 +77,7 @@ header.nav.is-stuck img.logo{height:64px}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .kicker{display:inline-flex;align-items:center;gap:.7rem;font-weight:700;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
 .kicker::before{content:"";width:42px;height:4px;background:var(--gold);border-radius:2px}
-.hero h1{font-size:clamp(2.5rem,6vw,4.7rem);margin:1rem 0 1.4rem}
+.hero h1{font-size:clamp(2.3rem,5vw,3.9rem);margin:1rem 0 1.4rem}
 .hero h1 .w{display:inline-block;position:relative}
 .hero h1 .w--gold::after{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.04em;height:.34em;background:var(--gold);z-index:-1;transform-origin:left;transform:scaleX(1)}
 .js .hero h1 .w--gold::after{transform:scaleX(0);transition:transform 1s var(--ease) 1.5s}
@@ -130,6 +131,19 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .dark{background:var(--ink);color:#fff}
 .dark .kicker{color:#bdbdb6}.dark .sec-head p{color:#c4c4be}
 
+
+.hero h1 .acc{background:linear-gradient(transparent 62%,var(--gold) 62%,var(--gold) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .06em}
+/* hero dark */
+.hero-dark{position:relative;background:#0f1011;color:#fff;overflow:hidden;padding:clamp(4rem,9vw,7.5rem) 0}
+.hero-dark .bg{position:absolute;top:0;right:0;bottom:0;height:100%;aspect-ratio:1/1;max-width:70%;background:url(assets/images/hero-dark-bg.jpg) center/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 40%);mask-image:linear-gradient(90deg,transparent 0%,#000 40%)}
+.hero-dark::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,16,17,.6) 0%,rgba(15,16,17,.2) 50%,rgba(15,16,17,0) 70%)}
+.hero-dark .wrap{position:relative;z-index:1}
+.hero-dark .in{max-width:720px}
+.hero-dark .kicker{color:#cfcfc9}
+.hero-dark h2{text-shadow:0 2px 18px rgba(0,0,0,.45);font-size:clamp(2.3rem,5.4vw,4.3rem);margin:1rem 0 1.4rem;color:#fff}
+.hero-dark h2 .acc{color:var(--gold)}
+.hero-dark p{font-size:1.2rem;max-width:52ch;color:#d4d4cf;margin:0 0 2rem}
+.hero-dark .cta{display:flex;flex-wrap:wrap;gap:1rem}
 /* stats */
 .stats{padding:0;margin-top:-1px}
 .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
@@ -351,12 +365,14 @@ footer .cl a{font-weight:600}
   .hero-media{max-width:480px;aspect-ratio:4/4.4}
   .cards{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:repeat(2,1fr)}
   .stats .wrap{grid-template-columns:repeat(3,1fr)}
+  .hero-dark .bg{left:0;width:100%;max-width:none;aspect-ratio:auto;-webkit-mask-image:none;mask-image:none;background-position:center 60%}.hero-dark::after{background:rgba(15,16,17,.72)}
   .sign{position:static}.sign-pic{flex:none;aspect-ratio:4/3;min-height:0}
   footer .wrap{grid-template-columns:1fr 1fr}.fab{display:block}
 }
 @media (max-width:620px){
   body{font-size:18px}
-  .top .hide{display:none}
+  .top .hide{display:none}.top .mob{display:inline-flex}
+  .top .wrap{justify-content:center;padding:.6rem 0;font-size:.9rem}.top .wrap>span{gap:0;flex-wrap:wrap;justify-content:center}
   .nav .wrap{min-height:88px}.nav img.logo{height:68px}header.nav.is-stuck img.logo{height:56px}footer img{height:90px}
   .cards,.why,.opts,.grid2{grid-template-columns:1fr}
   .stats .wrap{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid #2f3438}.stat:last-child{border-bottom:0}
@@ -378,14 +394,14 @@ footer .cl a{font-weight:600}
 
 <div class="top">
   <div class="wrap">
-    <span><a href="tel:+4963489848744">☎ 06348 9848744</a><span class="hide">&nbsp;·&nbsp;<a href="tel:+4917665357084">Mobil 0176 65357084</a></span></span>
+    <span><a href="tel:+4963489848744">☎ 06348 9848744</a><span class="mob">&nbsp;·&nbsp;<a href="mailto:markusboellinger@web.de">✉ E-Mail schreiben</a></span><span class="hide">&nbsp;·&nbsp;<a href="tel:+4917665357084">Mobil 0176 65357084</a></span></span>
     <span class="hide"><a href="mailto:markusboellinger@web.de">markusboellinger@web.de</a>&nbsp;·&nbsp;Im Schlangengarten 40, 76877 Offenbach an der Queich</span>
   </div>
 </div>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#top" aria-label="Abbruch Böllinger – zur Startseite"><img class="logo" src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-600.webp" alt="Abbruch Böllinger" width="600" height="354" /></a>
+    <a href="#top" aria-label="Abbruch Böllinger – zur Startseite"><img class="logo" src="assets/images/logo-boellinger-header.webp" alt="Abbruch Böllinger" width="640" height="386" /></a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="mainnav" aria-label="Menü öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav id="mainnav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -404,7 +420,7 @@ footer .cl a{font-weight:600}
   <div class="wrap">
     <div>
       <span class="kicker fu" style="--fd:.1s">Demontage · Abbruch · Entkernung</span>
-      <h1 class="fu" style="--fd:.25s">Wir bauen <span class="w w--gold">zurück</span> – sauber, sicher und zuverlässig.</h1>
+      <h1 class="fu" style="--fd:.25s">Abbruch &amp; Demontage – <span class="acc">professionell, zuverlässig und präzise</span></h1>
       <p class="lead fu" style="--fd:.45s">Vom Einfamilienhaus bis zur Industrieanlage: Abbruch Böllinger aus Offenbach an der Queich plant und führt Ihr Projekt persönlich aus.</p>
       <div class="cta fu" style="--fd:.65s">
         <a class="btn btn--gold" href="#kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Angebot anfragen</a>
@@ -418,6 +434,19 @@ footer .cl a{font-weight:600}
     </div>
   </div>
 </div>
+
+<!-- HERO SCHWARZ -->
+<section class="hero-dark" aria-label="Abbruch und Demontage">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="in rv">
+      <span class="kicker">Demontage · Abbruch · Entkernung · Industriedemontage</span>
+      <h2>Abbruch &amp; Demontage – <span class="acc">professionell, zuverlässig und präzise</span></h2>
+      <p>Ob Abbruch, Entkernung oder Industrie- und Anlagendemontage: Wir stehen für fachgerechte Ausführung, durchdachte Planung und persönliche Betreuung – für Projekte jeder Größe in Ihrer Region.</p>
+      <div class="cta"><a class="btn btn--gold" href="#kontakt">Angebot anfragen</a><a class="btn btn--ghost-l" href="#leistungen">Unsere Leistungen</a></div>
+    </div>
+  </div>
+</section>
 <div class="hazard" aria-hidden="true"></div>
 
 <!-- STATS -->
@@ -638,7 +667,7 @@ footer .cl a{font-weight:600}
 
 <footer>
   <div class="wrap">
-    <div><img src="https://shahzadishaq.site/wp-content/uploads/bollinger/logo-600.webp" alt="Abbruch Böllinger" width="600" height="354" /><p>Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50&nbsp;km um Offenbach an der Queich.</p></div>
+    <div><img src="assets/images/logo-boellinger-footer.webp" alt="Abbruch Böllinger" width="640" height="387" /><p>Demontage, Abbruch, Entrümpelung, Entkernung, Industrie- und Schadstoffdemontage im Umkreis von ca. 50&nbsp;km um Offenbach an der Queich.</p></div>
     <div><h4>Navigation</h4><ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#arbeiten">Unsere Arbeiten</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#einsatzgebiet">Einsatzgebiet</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
     <div><h4>Kontakt</h4><ul class="cl cl--f">
             <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><small>Telefon</small><a href="tel:+4963489848744">06348 9848744</a></span></li>
@@ -773,7 +802,7 @@ footer .cl a{font-weight:600}
     }
     return true;
   }
-  f.addEventListener('change',function(e){ var t=e.target; if(t.type==='radio'){ setSign(t.name,t.getAttribute('data-text')); err.hidden=true; } });
+  f.addEventListener('change',function(e){ var t=e.target; if(t.type==='radio'){ setSign(t.name,t.getAttribute('data-text')); err.hidden=true; var st=fs[cur2]; if(st.contains(t) && cur2<N-1){ setTimeout(function(){ if(fs[cur2]===st && checked(st)){ cur2++; showStep(true); } },350); } } });
   f.addEventListener('input',function(e){ var t=e.target; t.removeAttribute('aria-invalid'); if(t.id==='f-ort') setSign('ort',t.value.trim()); });
   back.addEventListener('click',function(){ if(cur2>0){ cur2--; showStep(true); } });
   f.addEventListener('submit',function(e){ e.preventDefault(); if(!valid()) return; if(cur2<N-1){ cur2++; showStep(true); } else send(); });
