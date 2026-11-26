@@ -321,6 +321,10 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 .field input,.field textarea{width:100%;font:inherit;font-size:1.05rem;padding:1rem 1.1rem;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .2s}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
 .field [aria-invalid="true"]{border-color:var(--red);background:#fdf3f2}
+.unit{position:relative}
+.field .unit input{padding-right:3.6rem;-moz-appearance:textfield;appearance:textfield}
+.unit input::-webkit-outer-spin-button,.unit input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.unit span{position:absolute;right:1.1rem;top:50%;translate:0 -50%;font-weight:700;color:var(--grey);pointer-events:none}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .consent{display:flex;gap:.8rem;align-items:flex-start;font-size:.95rem;color:var(--grey);cursor:pointer}
 .consent input{width:26px;height:26px;margin-top:.1rem;accent-color:var(--gold-d);flex:none}
@@ -598,14 +602,14 @@ footer .cl a{font-weight:600}
 
     <div class="fcard rv" id="fcard" style="--d:.1s">
       <span class="kicker">Angebot anfragen</span>
-      <h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem);margin:.8rem 0 1.4rem">In fünf kurzen Schritten zu Ihrer Anfrage</h2>
+      <h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem);margin:.8rem 0 1.4rem">In sechs kurzen Schritten zu Ihrer Anfrage</h2>
       <form id="funnel" novalidate>
         <div class="fbody">
           <div class="track" aria-hidden="true">
             <div class="dig" id="dig"><svg viewBox="0 0 120 70" fill="currentColor"><rect x="6" y="52" width="70" height="14" rx="7"/><circle cx="16" cy="59" r="3" fill="#fdb301"/><circle cx="41" cy="59" r="3" fill="#fdb301"/><circle cx="66" cy="59" r="3" fill="#fdb301"/><path d="M14 52V36a4 4 0 0 1 4-4h34a4 4 0 0 1 4 4v16z"/><path d="M40 32V14a3 3 0 0 1 3-3h14l8 21z" fill="#fdb301"/><g class="arm"><path d="M60 38 82 14l7 6-18 24z"/><path d="M86 16 106 36l-7 5-18-19z"/><path d="M104 34l10 14h-14z" fill="#fdb301"/></g></svg></div>
             <div class="rail"><i id="rail"></i></div>
           </div>
-          <div class="stepmeta"><span id="slabel" aria-live="polite">Schritt 1 von 5</span><b id="spct">0 %</b></div>
+          <div class="stepmeta"><span id="slabel" aria-live="polite">Schritt 1 von 6</span><b id="spct">0 %</b></div>
 
           <fieldset class="fs" data-key="leistung">
             <legend class="fq" tabindex="-1">Welche Leistung benötigen Sie?</legend>
@@ -616,6 +620,11 @@ footer .cl a{font-weight:600}
             <legend class="fq" tabindex="-1">Um welches Objekt handelt es sich?</legend>
             <p class="fh">Eine grobe Einordnung genügt.</p>
             <div class="opts" id="o-objekt"></div>
+          </fieldset>
+          <fieldset class="fs" data-key="flaeche" hidden>
+            <legend class="fq" tabindex="-1">Wie groß ist das Objekt?</legend>
+            <p class="fh">Ob Haus, Wohnung, Gewerbefläche oder Garage – geben Sie die ungefähre Fläche in Quadratmetern an. Ein Schätzwert genügt.</p>
+            <div class="field"><label for="f-flaeche">Fläche in m² *</label><div class="unit"><input id="f-flaeche" name="flaeche" type="number" inputmode="numeric" min="1" max="1000000" step="1" placeholder="z. B. 300" required /><span aria-hidden="true">m²</span></div></div>
           </fieldset>
           <fieldset class="fs" data-key="zeitraum" hidden>
             <legend class="fq" tabindex="-1">Wann soll das Projekt starten?</legend>
@@ -785,6 +794,7 @@ footer .cl a{font-weight:600}
   function valid(){
     var st=fs[cur2], key=st.getAttribute('data-key');
     if(['leistung','objekt','zeitraum'].indexOf(key)>-1){ if(!checked(st)){ fail('Bitte wählen Sie eine Antwort aus.'); return false; } }
+    if(key==='flaeche'){ var fl=$('#f-flaeche'), fv=parseFloat(String(fl.value).replace(',','.')); if(!(fv>0)){ fail('Bitte geben Sie die ungefähre Größe in m² an.',fl); return false; } }
     if(key==='ort'){ var o=$('#f-ort'); if(o.value.trim().length<3){ fail('Bitte geben Sie PLZ und Ort an.',o); return false; } }
     if(key==='kontakt'){
       var n=$('#f-name'), m=$('#f-mail'), t=$('#f-msg'), ok=$('#f-ok');
@@ -796,7 +806,7 @@ footer .cl a{font-weight:600}
     return true;
   }
   f.addEventListener('change',function(e){ var t=e.target; if(t.type==='radio'){ setSign(t.name,t.getAttribute('data-text')); err.hidden=true; var st=fs[cur2]; if(st.contains(t) && cur2<N-1){ setTimeout(function(){ if(fs[cur2]===st && checked(st)){ cur2++; showStep(true); } },350); } } });
-  f.addEventListener('input',function(e){ var t=e.target; t.removeAttribute('aria-invalid'); if(t.id==='f-ort') setSign('ort',t.value.trim()); });
+  f.addEventListener('input',function(e){ var t=e.target; t.removeAttribute('aria-invalid'); if(t.id==='f-flaeche') err.hidden=true; if(t.id==='f-ort') setSign('ort',t.value.trim()); });
   back.addEventListener('click',function(){ if(cur2>0){ cur2--; showStep(true); } });
   f.addEventListener('submit',function(e){ e.preventDefault(); if(!valid()) return; if(cur2<N-1){ cur2++; showStep(true); } else send(); });
 
@@ -807,7 +817,7 @@ footer .cl a{font-weight:600}
   function send(){
     var v=f.elements; if(v.website.value.trim()) return;
     var d={}; fs.forEach(function(s){ var r=checked(s); if(r) d[s.getAttribute('data-key')]=r.getAttribute('data-text'); });
-    var body=['Name: '+v.name.value.trim(),'E-Mail: '+v.email.value.trim(),'Telefon: '+(v.telefon.value.trim()||'Nicht angegeben'),'Leistung: '+(d.leistung||'-'),'Objekt: '+(d.objekt||'-'),'Zeitraum: '+(d.zeitraum||'-'),'Projektstandort: '+v.ort.value.trim(),'','Vorhaben:',v.nachricht.value.trim()].join('\n');
+    var body=['Name: '+v.name.value.trim(),'E-Mail: '+v.email.value.trim(),'Telefon: '+(v.telefon.value.trim()||'Nicht angegeben'),'Leistung: '+(d.leistung||'-'),'Objekt: '+(d.objekt||'-'),'Größe: '+(v.flaeche.value.trim()?v.flaeche.value.trim()+' m²':'-'),'Zeitraum: '+(d.zeitraum||'-'),'Projektstandort: '+v.ort.value.trim(),'','Vorhaben:',v.nachricht.value.trim()].join('\n');
     var first=v.name.value.trim().split(' ')[0]; if(first) $('#done-t').textContent='Vielen Dank, '+first+'!';
     $('#fcard').classList.add('is-done'); $('#rail').style.width='100%'; var dn=$('#done'); dn.hidden=false; dn.focus({preventScroll:true});
     location.href='mailto:markusboellinger@web.de?subject='+encodeURIComponent('Anfrage über die Website – '+(d.leistung||'Abbruch Böllinger'))+'&body='+encodeURIComponent(body);
