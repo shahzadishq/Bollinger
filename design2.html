@@ -303,7 +303,8 @@ section{padding:clamp(3.5rem,7vw,6.5rem) 0}
 @keyframes fin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
 .fq{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.2;padding:0;margin-bottom:.4rem;outline:none}
 .fh{color:var(--grey);margin-bottom:1.5rem}
-.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.9rem}
+.opt{display:flex}.opt label{flex:1 1 auto;height:100%;box-sizing:border-box}
 .opt input{position:absolute;opacity:0;pointer-events:none}
 .opt label{display:flex;align-items:center;gap:.9rem;min-height:84px;padding:.9rem 1.1rem;border:2px solid var(--line);border-radius:var(--r);cursor:pointer;background:var(--white);transition:border-color .25s,background-color .25s,transform .25s var(--ease),box-shadow .25s}
 .opt label:hover{border-color:var(--gold);transform:translateY(-2px)}
